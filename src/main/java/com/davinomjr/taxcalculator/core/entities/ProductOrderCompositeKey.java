@@ -5,11 +5,11 @@ import java.util.Objects;
 
 public class ProductOrderCompositeKey implements Serializable {
 
-    private String productId;
+    private int productId;
 
-    private String orderId;
+    private int orderId;
 
-    public ProductOrderCompositeKey(String productId, String orderId) {
+    public ProductOrderCompositeKey(int productId, int orderId) {
         this.productId = productId;
         this.orderId = orderId;
     }
@@ -26,8 +26,7 @@ public class ProductOrderCompositeKey implements Serializable {
         }
 
         ProductOrderCompositeKey compositeKey = (ProductOrderCompositeKey) o;
-        return Objects.equals(productId, compositeKey.productId ) &&
-                Objects.equals(orderId, compositeKey.orderId );
+        return productId == compositeKey.productId && orderId == compositeKey.orderId;
     }
 
     @Override

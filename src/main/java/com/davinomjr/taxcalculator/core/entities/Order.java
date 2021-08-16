@@ -1,15 +1,13 @@
 package com.davinomjr.taxcalculator.core.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 
 @Entity
+@Table(name = "Orders")
 public class Order {
 
         @Id
-        private String id;
+        private int id;
 
 }

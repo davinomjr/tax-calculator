@@ -13,9 +13,5 @@ public class TaxcalculatorApplication {
 		SpringApplication.run(TaxcalculatorApplication.class, args);
 	}
 
-	//@GetMapping("/calculate")
-	//public String calculate(@Reque)
-
-
 
 }
