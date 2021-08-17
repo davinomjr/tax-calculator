@@ -1,6 +1,6 @@
 # Tax Calculator
 
-This application is a REST API used for calculating taxes from a shopping basket. It was built using a Clean (Hexagonal) architecture using clean code principles. 
+This application is a REST API used for calculating taxes from a shopping basket. It was built using a Clean (Hexagonal) architecture and clean code principles. 
 
 The project has the following set of features:
 - Given a order basket, print the receipt details with the name of all items and their price (with taxes) rounded up to the nearest 0.05, along with the extra taxes and total

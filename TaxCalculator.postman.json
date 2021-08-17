@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0b71dde8-d28d-4022-a4bf-58600fd0b1c8",
+		"_postman_id": "b3c26117-3f87-4013-9124-1f7a11552da1",
 		"name": "TaxCalculator",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -25,7 +25,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"items\": [\n            {\n                \"name\": \"book\",\n                \"quantity\": 1,\n                \"value\": 12.49\n            },\n            {\n                \"name\": \"music CD\",\n                \"quantity\": 1,\n                \"value\": 14.99\n            },\n            {\n                \"name\": \"Chocolate Bar\",\n                \"quantity\": 1,\n                \"value\": 0.85\n            }\n        ]\n\n}\n",
+					"raw": "[\n    {\n        \"name\":\"book\",\n        \"quantity\":1,\n        \"value\":12.49\n    },\n    {\n        \"name\":\"music CD\",\n        \"quantity\":1,\n        \"value\":14.99\n    },\n    {\n        \"name\":\"Chocolate Bar\",\n        \"quantity\":1,\n        \"value\":0.85\n    }\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -61,7 +61,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"items\": [\n            {\n                \"name\": \"imported box of chocolates\",\n                \"quantity\": 1,\n                \"value\": 10.00\n            },\n            {\n                \"name\": \"imported bottle of perfume\",\n                \"quantity\": 1,\n                \"value\": 47.50\n            }\n        ]\n\n}\n",
+					"raw": "[\n    {\n        \"name\":\"imported box of chocolates\",\n        \"quantity\":1,\n        \"value\":10.00\n    },\n    {\n        \"name\":\"imported bottle of perfume\",\n        \"quantity\":1,\n        \"value\":47.50\n    }\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -97,7 +97,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"items\": [\n            {\n                \"name\": \"imported bottle of perfume\",\n                \"quantity\": 1,\n                \"value\": 27.99\n            },\n            {\n                \"name\": \"bottle of perfume\",\n                \"quantity\": 1,\n                \"value\": 18.99\n            },\n            {\n                \"name\": \"packet of headache pills\",\n                \"quantity\": 1,\n                \"value\": 9.75\n            },\n            {\n                \"name\": \"imported box of chocolates\",\n                \"quantity\": 1,\n                \"value\": 11.25\n            }\n        ]\n\n}\n",
+					"raw": "[\n    {\n        \"name\":\"imported bottle of perfume\",\n        \"quantity\":1,\n        \"value\":27.99\n    },\n    {\n        \"name\":\"bottle of perfume\",\n        \"quantity\":1,\n        \"value\":18.99\n    },\n    {\n        \"name\":\"packet of headache pills\",\n        \"quantity\":1,\n        \"value\":9.75\n    },\n    {\n        \"name\":\"imported box of chocolates\",\n        \"quantity\":1,\n        \"value\":11.25\n    }\n]",
 					"options": {
 						"raw": {
 							"language": "json"
