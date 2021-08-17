@@ -55,7 +55,7 @@ public class TaxCalculatorControllerTests {
         OrderReceipt expectedReceipt = new OrderReceipt(orderItems);
         when(service.calculate(any(Order.class))).thenReturn(expectedReceipt);
 
-        String input = "{\"items\":[{\"name\":\"book\",\"quantity\":1,\"value\":12.49},{\"name\":\"music CD\",\"quantity\":1,\"value\":14.99},{\"name\":\"Chocolate Bar\",\"quantity\":1,\"value\":0.85}]}";
+        String input = "[{\"name\":\"book\",\"quantity\":1,\"value\":12.49},{\"name\":\"music CD\",\"quantity\":1,\"value\":14.99},{\"name\":\"Chocolate Bar\",\"quantity\":1,\"value\":0.85}]";
         String expectedOutput = "{\"Basket\":[{\"Item\":{\"Name\":\"book\",\"Quantity\":1,\"Value\":\"12.49\"}},{\"Item\":{\"Name\":\"music CD\",\"Quantity\":1,\"Value\":\"16.50\"}},{\"Item\":{\"Name\":\"Chocolate Bar\",\"Quantity\":1,\"Value\":\"0.85\"}}],\"Sales Taxes\":\"1.51\",\"Total\":\"29.84\"}";
 
         MvcResult result = this.mockMvc.perform(MockMvcRequestBuilders.post("/tax/calculate")
@@ -81,19 +81,18 @@ public class TaxCalculatorControllerTests {
         OrderReceipt expectedReceipt = new OrderReceipt(orderItems);
         when(service.calculate(any(Order.class))).thenReturn(expectedReceipt);
 
-        String input = "{\"items_WRONG\":[{\"name\":\"book\",\"quantity\":1,\"value\":12.49},{\"name\":\"music CD\",\"quantity\":1,\"value\":14.99},{\"name\":\"Chocolate Bar\",\"quantity\":1,\"value\":0.85}]}";
+        String input = "[{\"nameWRONG\":\"book\",\"quantity\":1,\"value\":12.49},{\"name\":\"music CD\",\"quantity\":1,\"value\":14.99},{\"name\":\"Chocolate Bar\",\"quantity\":1,\"value\":0.85}]";
 
         this.mockMvc.perform(MockMvcRequestBuilders.post("/tax/calculate")
                                        .content(input)
                                        .contentType(MediaType.APPLICATION_JSON))
                                        .andDo(print())
-                                       .andExpect(status().is4xxClientError())
-                                       .andExpect(status().reason(containsString("There was an error processing your request.")));
+                                       .andExpect(status().is4xxClientError());
 	}
 
 	@Test
 	public void calculate_whenGivenAValidOrderWithNonExistentProductJson_shouldReturnErrorProductNotFound() throws Exception {
-        String input = "{\"items\":[{\"name\":\"product_that_does_not_exist\",\"quantity\":1,\"value\":12.49},{\"name\":\"music CD\",\"quantity\":1,\"value\":14.99},{\"name\":\"Chocolate Bar\",\"quantity\":1,\"value\":0.85}]}";
+        String input = "[{\"name\":\"product_that_does_not_exist\",\"quantity\":1,\"value\":12.49},{\"name\":\"music CD\",\"quantity\":1,\"value\":14.99},{\"name\":\"Chocolate Bar\",\"quantity\":1,\"value\":0.85}]";
         final String errorMessage = "Product not found.";
         when(service.calculate(any(Order.class))).thenThrow(new ProductNotFoundException(errorMessage));
         this.mockMvc.perform(MockMvcRequestBuilders.post("/tax/calculate")

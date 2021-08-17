@@ -1,18 +1,20 @@
 # Tax Calculator
 
-This application is a REST API for calculating taxes from a shopping basket. It was built using a Clean Architecture (Hexagonal) using clean code principles. 
+This application is a REST API used for calculating taxes from a shopping basket. It was built using a Clean (Hexagonal) architecture using clean code principles. 
 
 The project has the following set of features:
-- Given a order basket, print the receipt details with the name of all items and their price (with taxes) rounded up to the nearest 0.05, along with the extra taxes and total 
+- Given a order basket, print the receipt details with the name of all items and their price (with taxes) rounded up to the nearest 0.05, along with the extra taxes and total
 
-The idea of this project is to be a standalone package which can be deployed anywhere (e.g., a microservice architecture). For simplicity, it uses a H2 in-memory database (but could be replaced by any other rdbms) and runs under a embedded tomcat (with Spring).
+The idea of this project is to be a standalone package which can be deployed anywhere (e.g., a microservice architecture). 
+
+For simplicity, it uses a H2 in-memory database (but could be replaced by any other RDBMS) and runs under a embedded Tomcat (with Spring).
 
 It uses [Docker](https://docs.docker.com/get-docker/) to build, test, and run the application.
 
 
 ## Build
 
-- Run the following command under the root folder:
+- Run the following command under the root folder (it can take a while on the first time due to dependencies being downloaded):
   ```
   $ docker build -t tax-calculator .
   ```
@@ -54,7 +56,10 @@ For example:
 ]
 ```
 
+You can use this [collection](TaxCalculator.postman.json) for testing the API, using [Postman](https://www.postman.com/downloads/). It contains the examples included in the root folder already setup.
 
 # Disclaimer
 
 This project was built around the Spring framework, using H2 in-memory database with Hibernate ORM. For testing, the project includes both Unit and Integration tests, built using JUnit and Mockito, along with AssertJ.
+
+The API was designed to be a self-contained package (fat jar), deployable to multiple type of environments.

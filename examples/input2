@@ -1,15 +1,12 @@
-{
-        "items": [
-            {
-                "name": "imported box of chocolates",
-                "quantity": 1,
-                "value": 10.00
-            },
-            {
-                "name": "imported bottle of perfume",
-                "quantity": 1,
-                "value": 47.50
-            }
-        ]
-
-}
+[
+    {
+        "name":"imported box of chocolates",
+        "quantity":1,
+        "value":10.00
+    },
+    {
+        "name":"imported bottle of perfume",
+        "quantity":1,
+        "value":47.50
+    }
+]

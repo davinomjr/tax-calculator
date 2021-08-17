@@ -1,20 +1,17 @@
-{
-        "items": [
-            {
-                "name": "book",
-                "quantity": 1,
-                "value": 12.49
-            },
-            {
-                "name": "music CD",
-                "quantity": 1,
-                "value": 14.99
-            },
-            {
-                "name": "Chocolate Bar",
-                "quantity": 1,
-                "value": 0.85
-            }
-        ]
-
-}
+[
+    {
+        "name":"book",
+        "quantity":1,
+        "value":12.49
+    },
+    {
+        "name":"music CD",
+        "quantity":1,
+        "value":14.99
+    },
+    {
+        "name":"Chocolate Bar",
+        "quantity":1,
+        "value":0.85
+    }
+]

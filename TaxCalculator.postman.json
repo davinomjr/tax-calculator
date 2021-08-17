@@ -89,11 +89,6 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
 						"key": "",
 						"value": "",
 						"type": "text",
