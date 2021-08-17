@@ -24,6 +24,7 @@ public class OrderItem implements Serializable {
 
     private BigDecimal value;
 
+    @JsonIgnore
     private BigDecimal tax;
 
     public OrderItem(){}
