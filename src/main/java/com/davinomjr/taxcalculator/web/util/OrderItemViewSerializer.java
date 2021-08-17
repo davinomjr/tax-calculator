@@ -1,6 +1,5 @@
 package com.davinomjr.taxcalculator.web.util;
 
-import com.davinomjr.taxcalculator.core.entities.OrderItem;
 import com.davinomjr.taxcalculator.web.views.OrderItemView;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;

@@ -2,9 +2,7 @@ package com.davinomjr.taxcalculator.application.services;
 
 import com.davinomjr.taxcalculator.application.interfaces.IOrderService;
 import com.davinomjr.taxcalculator.core.entities.Order;
-import com.davinomjr.taxcalculator.infrastructure.repositories.IOrderItemRepository;
 import com.davinomjr.taxcalculator.infrastructure.repositories.IOrderRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

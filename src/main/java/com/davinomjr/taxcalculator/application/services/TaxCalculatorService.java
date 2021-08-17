@@ -1,12 +1,10 @@
 package com.davinomjr.taxcalculator.application.services;
 
-import com.davinomjr.taxcalculator.application.handlers.BasicSalesTaxHandler;
-import com.davinomjr.taxcalculator.application.handlers.ImportedSalesTaxHandler;
+import com.davinomjr.taxcalculator.application.handlers.HandlerConfiguration;
 import com.davinomjr.taxcalculator.application.handlers.SalesTaxHandler;
 import com.davinomjr.taxcalculator.application.interfaces.IOrderService;
 import com.davinomjr.taxcalculator.application.interfaces.IProductService;
 import com.davinomjr.taxcalculator.application.interfaces.ITaxCalculatorService;
-import com.davinomjr.taxcalculator.application.util.TaxRateConstants;
 import com.davinomjr.taxcalculator.core.entities.Order;
 import com.davinomjr.taxcalculator.core.entities.OrderItem;
 import com.davinomjr.taxcalculator.core.entities.OrderReceipt;
@@ -14,6 +12,7 @@ import com.davinomjr.taxcalculator.core.entities.Product;
 import com.davinomjr.taxcalculator.core.exceptions.ProductNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,16 +21,19 @@ public class TaxCalculatorService implements ITaxCalculatorService {
 
     private final IOrderService orderService;
     private final IProductService productService;
+    private final HandlerConfiguration handlerConfiguration;
 
     private List<Product> products;
     private SalesTaxHandler chain;
 
     public TaxCalculatorService(final IProductService productService,
-                                final IOrderService orderService)
+                                final IOrderService orderService,
+                                final HandlerConfiguration handlerConfiguration)
     {
         this.orderService = orderService;
         this.productService = productService;
-        this.chain = new ImportedSalesTaxHandler(new BasicSalesTaxHandler(null, TaxRateConstants.BASIC_RATE), TaxRateConstants.IMPORTED_RATE);
+        this.handlerConfiguration = handlerConfiguration;
+        this.chain =  this.handlerConfiguration.getConfiguration();
     }
 
     @Override
@@ -44,7 +46,7 @@ public class TaxCalculatorService implements ITaxCalculatorService {
                 throw new ProductNotFoundException("Product not found.");
             }
 
-            double finalTax = chain.calculateTax(matchedProduct.get(), 0);
+            BigDecimal finalTax = chain.getTaxRate(matchedProduct.get(), BigDecimal.ZERO);
             receipt.addItem(new OrderItem(item, finalTax));
         }
 

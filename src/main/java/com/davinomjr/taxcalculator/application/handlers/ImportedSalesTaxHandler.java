@@ -1,18 +1,20 @@
 package com.davinomjr.taxcalculator.application.handlers;
 import com.davinomjr.taxcalculator.core.entities.Product;
 
+import java.math.BigDecimal;
+
 public class ImportedSalesTaxHandler extends SalesTaxHandler {
 
-    public ImportedSalesTaxHandler(SalesTaxHandler handler, double rate) {
+    public ImportedSalesTaxHandler(SalesTaxHandler handler, BigDecimal rate) {
         super(handler, rate);
     }
 
       @Override
-      public double calculateTax(Product product, double tax) {
-        if(this.rate > 0 && product.isImported()) {
-            tax += super.rate;
+      public BigDecimal getTaxRate(Product product, BigDecimal tax) {
+        if(this.rate != BigDecimal.ZERO && product.isImported()) {
+            tax = super.rate.add(tax);
         }
 
-        return super.calculateTax(product, tax);
+        return super.getTaxRate(product, tax);
     }
 }

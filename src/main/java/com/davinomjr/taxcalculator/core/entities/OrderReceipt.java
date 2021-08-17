@@ -1,19 +1,22 @@
 package com.davinomjr.taxcalculator.core.entities;
 
-import com.davinomjr.taxcalculator.core.Round;
+import com.davinomjr.taxcalculator.core.util.Round;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class OrderReceipt implements Serializable {
 
     private List<OrderItem> orderItems;
-    private double taxes;
-    private double total;
+    private BigDecimal taxes;
+    private BigDecimal total;
 
     public OrderReceipt(){
         orderItems = new ArrayList<>();
     }
+
+    public OrderReceipt(List<OrderItem> orderItems) { this.orderItems = orderItems; }
 
     public void addItem(OrderItem item){
         this.orderItems.add(item);
@@ -23,15 +26,15 @@ public class OrderReceipt implements Serializable {
         return orderItems;
     }
 
-    public double getTaxes(){
+    public BigDecimal getTaxes(){
         return Round.roundToMoney(orderItems.stream()
                                             .map(OrderItem::getValueMinusTaxes)
-                                            .reduce(0.0, Double::sum));
+                                            .reduce(BigDecimal.ZERO, BigDecimal::add));
     }
 
-    public double getTotal(){
+    public BigDecimal getTotal(){
         return Round.roundToMoney(orderItems.stream()
-                                            .map(t -> t.getValue() * t.getQuantity())
-                                            .reduce(0.0, Double::sum));
+                                            .map(t -> t.getValue().multiply(BigDecimal.valueOf(t.getQuantity())))
+                                            .reduce(BigDecimal.ZERO, BigDecimal::add));
     }
 }

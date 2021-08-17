@@ -1,6 +1,8 @@
 package com.davinomjr.taxcalculator.application.util;
 
+import java.math.BigDecimal;
+
 public class TaxRateConstants {
-    public static final double BASIC_RATE = 10;
-    public static final double IMPORTED_RATE = 5;
+    public static final BigDecimal BASIC_RATE = BigDecimal.valueOf(10);
+    public static final BigDecimal IMPORTED_RATE = BigDecimal.valueOf(5);
 }

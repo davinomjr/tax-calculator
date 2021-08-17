@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "0b71dde8-d28d-4022-a4bf-58600fd0b1c8",
+		"name": "TaxCalculator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Input1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"items\": [\n            {\n                \"name\": \"book\",\n                \"quantity\": 1,\n                \"value\": 12.49\n            },\n            {\n                \"name\": \"music CD\",\n                \"quantity\": 1,\n                \"value\": 14.99\n            },\n            {\n                \"name\": \"Chocolate Bar\",\n                \"quantity\": 1,\n                \"value\": 0.85\n            }\n        ]\n\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tax/calculate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tax",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Input2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"items\": [\n            {\n                \"name\": \"imported box of chocolates\",\n                \"quantity\": 1,\n                \"value\": 10.00\n            },\n            {\n                \"name\": \"imported bottle of perfume\",\n                \"quantity\": 1,\n                \"value\": 47.50\n            }\n        ]\n\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tax/calculate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tax",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Input3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"items\": [\n            {\n                \"name\": \"imported bottle of perfume\",\n                \"quantity\": 1,\n                \"value\": 27.99\n            },\n            {\n                \"name\": \"bottle of perfume\",\n                \"quantity\": 1,\n                \"value\": 18.99\n            },\n            {\n                \"name\": \"packet of headache pills\",\n                \"quantity\": 1,\n                \"value\": 9.75\n            },\n            {\n                \"name\": \"imported box of chocolates\",\n                \"quantity\": 1,\n                \"value\": 11.25\n            }\n        ]\n\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tax/calculate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tax",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
